@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GAP.AccessData\GAP.AccessData.csproj" />
+    <ProjectReference Include="..\GAP.Transversal\GAP.Transversal.csproj" />
+  </ItemGroup>
+
+</Project>
