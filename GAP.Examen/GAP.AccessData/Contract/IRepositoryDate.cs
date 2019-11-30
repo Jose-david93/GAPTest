@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace GAP.AccessData.Contract
 {
-    interface IRepositoryDate : IRepository<Dates>
+    public interface IRepositoryDate : IRepository<Dates>
     {
         IList<Dates> FindBy(QueryParameters<Dates> queryParameters);
+        bool IsCancelable(Dates date);
+        bool HavePatientDate(Dates date);
     }
 }

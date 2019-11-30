@@ -11,7 +11,7 @@ namespace GAP.Transversal.Models
             Top = top;
             Where = null;
             OrderBy = null;
-            OrderByDescending = null;
+            OrderByDescending = "Desc";
         }
 
         public int Page { get; set; }

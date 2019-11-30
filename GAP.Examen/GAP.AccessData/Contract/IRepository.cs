@@ -5,11 +5,10 @@ using System.Linq.Expressions;
 
 namespace GAP.AccessData.Contract
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         T Add(T entity);
         void Delete(T entity, string id);
-        int Update(T entity);
-        //IEnumerable<T> FindBy(QueryParameters<T> queryParameters);
+        T Update(T entity);
     }
 }
