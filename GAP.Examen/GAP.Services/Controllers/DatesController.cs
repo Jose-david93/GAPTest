@@ -18,7 +18,7 @@ namespace GAP.Services.Controllers
         [HttpPost]
         public ActionResult CancelDate(Dates request)
         {
-            Dates result = date.CancelDate(request);
+            bool result = date.CancelDate(request);
             return Ok(result);
         }
 

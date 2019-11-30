@@ -34,13 +34,13 @@ namespace GAP.AccessData.Repository
                 Query<T>("Find"+entity.GetType().Name, parameters);
         }
 
-        public T Update(T entity)
+        public bool Update(T entity)
         {
             using (var con = Insight.ADInsight.DefaultCnn.OpenWithTransaction())
             {
-                con.Execute("Update" + entity.GetType().Name, entity);
+                int Result = con.Execute("Update" + entity.GetType().Name, entity);
                 con.Commit();
-                return entity;
+                return Result > 0;
             }
         }
     }

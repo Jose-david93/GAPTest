@@ -7,11 +7,11 @@ namespace GAP.BussinesLogic.Date
 {
     public class BLDate : IDate
     {
-        public Dates CancelDate(Dates date)
+        public bool CancelDate(Dates date)
         {
             if(IsCancelable(date))
                 return new ADRepositoryDate().Update(date);
-            return default;
+            return false;
         }
 
         public Dates CreateDate(Dates date)

@@ -1,0 +1,64 @@
+﻿.contenedor .form .form-header .form-tittle {
+    font-weight: normal;
+    font-family: sans-serif;
+    color: #5ef11a;
+    text-align: center;
+    padding: 14px 0;
+}
+
+.contenedor .form {
+    background: rgba(0, 0, 0, .3);
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+}
+
+.contenedor .form .form-label {
+display: block;
+color: #5ef11a;
+font-size: 16px;
+font-family: Roboto;
+position: relative;
+}
+
+.contenedor .form .form-input {
+background: rgba(0,0,0,.5);
+border: none;
+outline: none;
+border-bottom: 2px solid #5ef11a;
+width: 100%;
+padding: 12px;
+margin-bottom: 20px;
+border-radius: 2px;
+font-size: 14px;
+color: #FFF;
+font-family: Roboto;
+}
+
+.contenedor .form .form-input {
+resize: vertical;
+max-height: 150px;
+max-height: 150px;
+min-height: 50px;
+}
+
+.contenedor .form .btn-submit {
+width: 100%;
+font-family: Roboto;
+outline: none;
+background: #5ef11a;
+font-size: 16px;
+border: none;
+color: #FFF;
+padding: 15px 0;
+cursor: pointer;
+transition: all .5s ease;
+}
+
+.contenedor .form .btn-submit:hover {
+    background: #65ee79;
+}

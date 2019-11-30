@@ -8,7 +8,7 @@ namespace GAP.BussinesLogic.Contract
     {
         bool IsCancelable(Dates date);
         bool HavePatientDate(Dates date);
-        Dates CancelDate(Dates date);
+        bool CancelDate(Dates date);
         Dates CreateDate(Dates date);
         IList<Dates> GetDates(QueryParameters queryParameters);
     }

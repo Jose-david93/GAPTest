@@ -27,10 +27,13 @@ namespace GAP.Services.Controllers
             return Ok(result);
         }
 
-        [Route("FindByDni")]
-        [HttpPost]
-        public ActionResult FindByDni(Patients request)
+        [Route("FindByDni/{dni}")]
+        [HttpGet]
+        public ActionResult FindByDni(string dni)
         {
+            Patients request = new Patients();
+            request.Dni = dni;
+
             Patients result = patient.FindByDni(request);
             return Ok(result);
         }

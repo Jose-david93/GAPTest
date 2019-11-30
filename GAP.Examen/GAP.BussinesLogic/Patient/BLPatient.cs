@@ -4,7 +4,7 @@ using GAP.Transversal.Models;
 
 namespace GAP.BussinesLogic.Patient
 {
-    class BLPatient : IPatient
+    public class BLPatient : IPatient
     {
         public Patients CreatePatient(Patients patients)
         {
