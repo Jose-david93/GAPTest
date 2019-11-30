@@ -10,5 +10,11 @@ namespace GAP.Transversal.Models
         public DateTime DateService { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }
+
+        //To Mapping
+        public string Dni {get;set;}
+        public string FirstName {get;set;}
+        public string LastName { get;set;}
+        public string Service { get;set;}
     }
 }

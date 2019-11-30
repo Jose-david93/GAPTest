@@ -1,5 +1,7 @@
 ﻿using GAP.AccessData.Contract;
+using GAP.Transversal.Models;
 using Insight.Database;
+using System.Collections.Generic;
 
 namespace GAP.AccessData.Repository
 {
@@ -22,6 +24,14 @@ namespace GAP.AccessData.Repository
                 con.ExecuteSql("DELETE FROM " + entity.GetType().Name + " WHERE id = "+ id);
                 con.Commit();
             }
+        }
+
+        public IList<T> Find(T entity, QueryParameters parameters)
+        {
+            return Insight.
+                ADInsight.
+                DefaultCnn.
+                Query<T>("Find"+entity.GetType().Name, parameters);
         }
 
         public T Update(T entity)

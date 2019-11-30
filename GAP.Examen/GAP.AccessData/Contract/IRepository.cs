@@ -10,5 +10,7 @@ namespace GAP.AccessData.Contract
         T Add(T entity);
         void Delete(T entity, string id);
         T Update(T entity);
+
+        IList<T> Find(T entity, QueryParameters parameters);
     }
 }

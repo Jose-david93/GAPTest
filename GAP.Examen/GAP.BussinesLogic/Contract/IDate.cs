@@ -10,6 +10,6 @@ namespace GAP.BussinesLogic.Contract
         bool HavePatientDate(Dates date);
         Dates CancelDate(Dates date);
         Dates CreateDate(Dates date);
-        IList<Dates> GetDates(QueryParameters<Dates> queryParameters);
+        IList<Dates> GetDates(QueryParameters queryParameters);
     }
 }

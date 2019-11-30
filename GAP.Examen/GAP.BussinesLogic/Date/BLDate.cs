@@ -21,9 +21,10 @@ namespace GAP.BussinesLogic.Date
             return default;
         }
 
-        public IList<Dates> GetDates(QueryParameters<Dates> queryParameters)
+        public IList<Dates> GetDates(QueryParameters queryParameters)
         {
-            return new ADRepositoryDate().FindBy(queryParameters);
+            Dates dates = new Dates();
+            return new ADRepositoryDate().Find(dates,queryParameters);
         }
 
         public bool HavePatientDate(Dates date)
