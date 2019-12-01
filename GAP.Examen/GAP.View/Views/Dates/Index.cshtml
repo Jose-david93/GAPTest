@@ -11,25 +11,25 @@
 
                 <input type="hidden" class="rem" id="idPatient" value="" />
 
-                <label for="dni" class="form-label">Dni:</label>
-                <input type="text" id="dni" class="form-input " placeholder="Escriba su Dni">
+                <label for="dni" class="form-label">Dni<span style="color:red">*</span>:</label>
+                <input type="text" id="dni" class="form-input required" placeholder="Escriba su Dni">
 
-                <label for="nombre" class="form-label">Nombres:</label>
-                <input type="text" id="nombre" class="form-input rem" placeholder="Escriba su Nombre">
+                <label for="nombre" class="form-label">Nombres<span style="color:red">*</span>:</label>
+                <input type="text" id="nombre" class="form-input rem required" placeholder="Escriba su Nombre">
 
-                <label for="apellido" class="form-label">Apellidos:</label>
-                <input type="text" id="apellido" class="form-input rem" placeholder="Escriba su Apellido">
+                <label for="apellido" class="form-label">Apellidos<span style="color:red">*</span>:</label>
+                <input type="text" id="apellido" class="form-input rem required" placeholder="Escriba su Apellido">
 
-                <label for="servicios" class="form-label">Servicios:</label>
-                <select id="servicios" class="form-input">
+                <label for="servicios" class="form-label">Servicios<span style="color:red">*</span>:</label>
+                <select id="servicios" class="form-input required rem2">
                     <option value="">--Seleccione un servicio--</option>
                 </select>
 
-                <label for="fechaCita" class="form-label">Fecha Cita:</label>
-                <input type="datetime-local" id="fechaCita" class="form-input">
+                <label for="fechaCita" class="form-label">Fecha Cita <span style="color:red">*</span>:</label>
+                <input type="datetime-local" id="fechaCita" class="form-input rem2">
 
                 <label for="descripcion" class="form-label">Descripcion:</label>
-                <input type="text" id="descripcion" class="form-input" placeholder="Escriba su descripcion">
+                <input type="text" id="descripcion" class="form-input rem2" placeholder="Escriba su descripcion">
 
                 <input type="button" id="agendar" class="btn-submit" name="name" value="Agendar" />
                 

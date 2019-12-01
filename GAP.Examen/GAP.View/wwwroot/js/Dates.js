@@ -15,6 +15,17 @@ function fillServices() {
         }
     });
 }
+function validate() {
+    band = true;
+    $(".required").each(function (index) {
+        if ($(this).val() == "")
+            band = false;
+    });
+    if (!(moment($("#fechaCita").val(), 'YYYY-MM-DDTHH:mm', true).isValid())) {
+        band = false;
+    }
+    return band;
+}
 
 function agendar() {
     DateObj = {
@@ -27,27 +38,34 @@ function agendar() {
         Description: $("#descripcion").val()
     };
 
-    request = JSON.stringify(DateObj); 
-    $.ajax({
-        type: "POST",
-        url: "https://localhost:44375/api/Dates/CreateDate",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        data: request,
-        success: function (data) {
-            if (data.success) {
-                $("#mensaje").text(data.message);
-                $("#mensaje").addClass("alert-success").removeClass("text-hide").removeClass("alert-warning");
+    request = JSON.stringify(DateObj);
+    if (validate()) {
+        $.ajax({
+            type: "POST",
+            url: "https://localhost:44375/api/Dates/CreateDate",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: request,
+            success: function (data) {
+                if (data.success) {
+                    $(".rem, .rem2, #dni").val("");
+                    $("#mensaje").text(data.message);
+                    $("#mensaje").addClass("alert-success").removeClass("text-hide").removeClass("alert-warning");
+                }
+                else {
+                    $("#mensaje").text(data.message);
+                    $("#mensaje").addClass("alert-warning").removeClass("text-hide").removeClass("alert-success");
+                }
+            },
+            error: function () {
+                console.log("something worng");
             }
-            else {
-                $("#mensaje").text(data.message);
-                $("#mensaje").addClass("alert-warning").removeClass("text-hide").removeClass("alert-success");
-            }
-        },
-        error: function () {
-            console.log("something worng");
-        }
-    });
+        });
+    }
+    else {
+        $("#mensaje").text("Valida que todos los campos requeridos esten bien llenos");
+        $("#mensaje").addClass("alert-warning").removeClass("text-hide").removeClass("alert-success");
+    }
 }
 
 $(document).ready(function () {
