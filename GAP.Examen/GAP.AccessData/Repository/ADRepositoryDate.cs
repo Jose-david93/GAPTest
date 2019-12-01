@@ -14,7 +14,7 @@ namespace GAP.AccessData.Repository
                             ADInsight.
                             DefaultCnn.
                             Query<Dates>("HavePatientDate", 
-                            new { IdPatient = date.IdPatient, DateService = date.DateService.ToString("yyyy/mm/dd") }).FirstOrDefault();
+                            new { IdPatient = date.IdPatient, DateService = date.DateService }).FirstOrDefault();
             if (result != null)
                 return true;
             return false;
@@ -27,7 +27,7 @@ namespace GAP.AccessData.Repository
                             DefaultCnn.
                             Query<Dates>("IsCancelable", 
                             new { Id = date.Id }).FirstOrDefault();
-            if (result == null)
+            if (result != null)
                 return true;
             return false;
         }

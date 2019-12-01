@@ -41,7 +41,7 @@ function agendar() {
             }
             else {
                 $("#mensaje").text(data.message);
-                $("#mensaje").addClass("alert-warning").removeClass("text-hide").removeClass("alert-warning");
+                $("#mensaje").addClass("alert-warning").removeClass("text-hide").removeClass("alert-success");
             }
         },
         error: function () {
@@ -131,7 +131,13 @@ $(document).ready(function () {
             url: "https://localhost:44375/api/Dates/CancelDate/" + data.id,
             success: function (data)
             {
-                console.log(data);
+                if (data.success) {
+                    location.reload();
+                }
+                else {
+                    $("#mensaje").text(data.message);
+                    $("#mensaje").addClass("alert-warning").removeClass("text-hide").removeClass("alert-success");
+                }
             },
             error: function () {
                 console.log("something worng");
