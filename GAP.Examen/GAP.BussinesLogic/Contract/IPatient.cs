@@ -9,5 +9,6 @@ namespace GAP.BussinesLogic.Contract
     {
         Response<Patients> CreatePatient(Patients patients);
         Response<Patients> FindByDni(Patients patients);
+        Response<IList<Patients>> GetPatients(QueryParameters request);
     }
 }

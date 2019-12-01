@@ -28,6 +28,14 @@ namespace GAP.Services.Controllers
             return Ok(result);
         }
 
+        [Route("GetPatients")]
+        [HttpPost]
+        public ActionResult GetPatients(QueryParameters queryParameters)
+        {
+            Response<IList<Patients>> result = patient.GetPatients(queryParameters);
+            return Ok(result);
+        }
+
         [Route("FindByDni/{dni}")]
         [HttpGet]
         public ActionResult FindByDni(string dni)

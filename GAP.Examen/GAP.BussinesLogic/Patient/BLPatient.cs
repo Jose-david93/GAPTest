@@ -1,4 +1,5 @@
-﻿using GAP.AccessData.Repository;
+﻿using System.Collections.Generic;
+using GAP.AccessData.Repository;
 using GAP.BussinesLogic.Contract;
 using GAP.Transversal.Models;
 using GAP.Transversal.Response;
@@ -41,6 +42,24 @@ namespace GAP.BussinesLogic.Patient
             }
             return response;
 
+        }
+
+        public Response<IList<Patients>> GetPatients(QueryParameters request)
+        {
+            Response<IList<Patients>> response = new Response<IList<Patients>>();
+            Patients patients = new Patients();
+            IList<Patients> listPatients = new ADRepositoryPatient().Find(patients, request);
+            if (listPatients.Count > 0)
+            {
+                response.Success = true;
+                response.Data = listPatients;
+            }
+            else
+            {
+                response.Success = false;
+                response.Data = listPatients;
+            }
+            return response;
         }
     }
 }

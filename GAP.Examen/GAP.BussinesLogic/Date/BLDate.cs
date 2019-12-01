@@ -8,10 +8,21 @@ namespace GAP.BussinesLogic.Date
 {
     public class BLDate : IDate
     {
-        public Response<bool> CancelDate(Dates date)
+        public Response<bool> CancelDate(string Id)
         {
             Response<bool> response = new Response<bool>();
             bool data = false;
+            Dates date = new Dates();
+            if (Id == "")
+            {
+                response.Success = false;
+                response.Message = "Id no permitido";
+                return response;
+            }
+
+            date.Id = new System.Guid(Id);
+            date.Status = false;
+
             if (IsCancelable(date))
             {
                 data = new ADRepositoryDate().Update(date);
@@ -64,10 +75,22 @@ namespace GAP.BussinesLogic.Date
             return response;
         }
 
-        public IList<Dates> GetDates(QueryParameters queryParameters)
+        public Response<IList<Dates>> GetDates(QueryParameters queryParameters)
         {
             Dates dates = new Dates();
-            return new ADRepositoryDate().Find(dates,queryParameters);
+            Response<IList<Dates>> response = new Response<IList<Dates>>();
+            IList<Dates> data = new ADRepositoryDate().Find(dates,queryParameters);
+            if (data.Count > 0)
+            {
+                response.Success = true;
+                response.Data = data;
+            }
+            else
+            {
+                response.Success = false;
+                response.Data = data;
+            }
+            return response;
         }
 
         public Response<IList<Services>> GetServices()

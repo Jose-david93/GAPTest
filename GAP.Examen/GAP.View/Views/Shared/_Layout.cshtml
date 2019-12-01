@@ -35,8 +35,9 @@
         </script>
     </environment>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.20/datatables.min.js"></script>
 
 </head>
 <body>
@@ -60,6 +61,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Patient" asp-action="Index">Pacientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Dates" asp-action="Dates">Citas</a>
                         </li>
                     </ul>
                 </div>

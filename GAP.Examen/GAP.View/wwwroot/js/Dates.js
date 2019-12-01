@@ -1,4 +1,5 @@
-﻿function fillServices() {
+﻿var dates;
+function fillServices() {
     $.ajax({
         url: "https://localhost:44375/api/Dates/GetServices",
         success: function (data) {
@@ -61,7 +62,6 @@ $(document).ready(function () {
             $.ajax({
                 url: "https://localhost:44375/api/Patients/FindByDni/" + $(this).val(),
                 success: function (data) {
-                    console.log(data);
                     if (data.success) {
 
                         $("#idPatient").val(data.data.id);
@@ -82,5 +82,60 @@ $(document).ready(function () {
         else {
             $(".rem").val("");
         }
+    });
+
+    dates = $('#dates').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "filter": true,
+        "orderMulti": false,
+        "searching": false,
+        "responsive": true,
+        "ajax": {
+            "url": "GetDates",
+            "type": "POST",
+            "datatype": "json"
+        },
+        "columns": [
+            { "data": "id", "name": "id" },
+            { "data": "dni", "name": "dni" },
+            { "data": "firstName", "name": "firstName" },
+            { "data": "lastName", "name": "lastName" },
+            { "data": "service", "name": "service" },
+            { "data": "description", "name": "status" },
+            { "data": "statusM", "name": "status" },
+            { "data": "dateService", "name": "dateService", "type": "date" }
+        ],
+        "columnDefs": [
+            {
+                "targets": 0,
+                "visible": false
+            },
+            {
+                "targets": 8,
+                "data": null,
+                "defaultContent": "<button class='btn btn-success' type='button'>Cancelar</button>"
+            }],
+        language: language
+    });
+
+    $('#dates tbody').on('click', 'button', function () {
+        var data = dates.row($(this).parents('tr')).data();
+        DateObj = {
+            IdJs: data.Id
+        };
+
+        request = JSON.stringify(DateObj); 
+
+        $.ajax({
+            url: "https://localhost:44375/api/Dates/CancelDate/" + data.id,
+            success: function (data)
+            {
+                console.log(data);
+            },
+            error: function () {
+                console.log("something worng");
+            }
+        });
     });
 });

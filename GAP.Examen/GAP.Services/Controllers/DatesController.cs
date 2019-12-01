@@ -21,11 +21,11 @@ namespace GAP.Services.Controllers
             ipatient = _patient;
         }
 
-        [Route("CancelDate")]
-        [HttpPost]
-        public ActionResult CancelDate(Dates request)
+        [Route("CancelDate/{Id}")]
+        [HttpGet]
+        public ActionResult CancelDate(string Id)
         {
-            Response<bool> result = idate.CancelDate(request);
+            Response<bool> result = idate.CancelDate(Id);
             return Ok(result);
         }
 
@@ -56,6 +56,14 @@ namespace GAP.Services.Controllers
         public ActionResult GetServices()
         {
             Response<IList<Transversal.Models.Services>> result = idate.GetServices();
+            return Ok(result);
+        }
+
+        [Route("GetDates")]
+        [HttpPost]
+        public ActionResult GetDates(QueryParameters queryParameters)
+        {
+            Response<IList<Dates>> result = idate.GetDates(queryParameters);
             return Ok(result);
         }
     }

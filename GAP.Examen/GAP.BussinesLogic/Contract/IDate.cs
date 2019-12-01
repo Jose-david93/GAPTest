@@ -9,9 +9,9 @@ namespace GAP.BussinesLogic.Contract
     {
         bool IsCancelable(Dates date);
         bool HavePatientDate(Dates date);
-        Response<bool> CancelDate(Dates date);
+        Response<bool> CancelDate(string Id);
         Response<Dates> CreateDate(Dates date);
-        IList<Dates> GetDates(QueryParameters queryParameters);
+        Response<IList<Dates>> GetDates(QueryParameters queryParameters);
         Response<IList<Services>> GetServices();
     }
 }
