@@ -4,6 +4,8 @@ using GAP.Transversal.Response;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace GAP.Services.Controllers
 {

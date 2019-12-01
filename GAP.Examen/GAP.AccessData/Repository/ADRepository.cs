@@ -43,6 +43,14 @@ namespace GAP.AccessData.Repository
                 Query<T>("Find" + entity.GetType().Name);
         }
 
+        public T IsExist(T entity)
+        {
+            return Insight.
+                ADInsight.
+                DefaultCnn.
+                Query<T>("Find" + entity.GetType().Name, entity).FirstOrDefault();
+        }
+
         public bool Update(T entity)
         {
             using (var con = Insight.ADInsight.DefaultCnn.OpenWithTransaction())

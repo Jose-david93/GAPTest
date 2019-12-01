@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GAP.BussinesLogic.Contract;
+using GAP.BussinesLogic.User;
 using GAP.Transversal.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +12,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Session;
+
 
 namespace GAP.View
 {
@@ -33,8 +37,16 @@ namespace GAP.View
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddAuthentication("CookieAuth")
+                .AddCookie("CookieAuth", config => {
+                    config.Cookie.Name = "UserAdmin.Cookie";
+                    config.LoginPath = "/Auth/Index";
+                });
 
+            services.AddScoped<IUser, BLUser>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,11 +67,14 @@ namespace GAP.View
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseAuthentication();
+
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Dates}/{action=Index}/{id?}");
+                  name: "default",
+                  template: "{controller=Dates}/{action=Index}");
             });
         }
     }

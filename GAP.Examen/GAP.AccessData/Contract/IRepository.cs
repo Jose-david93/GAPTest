@@ -12,5 +12,7 @@ namespace GAP.AccessData.Contract
         bool Update(T entity);
 
         IList<T> Find(T entity, QueryParameters parameters);
+        IList<T> Find(T entity);
+        T IsExist(T entity);
     }
 }

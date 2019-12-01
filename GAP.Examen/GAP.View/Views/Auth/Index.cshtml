@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "";
+}
+@model GAP.Transversal.Models.LoginViewModel
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<form asp-controller="Auth" asp-action="Index" asp-route-returnurl="@Model.ReturnUrl" method="post">
+    <div class="row">
+        <div class="col-md-2 offset-4">
+
+            <div class="card">
+                <div class="">
+                    <div class="text-center">
+                        <h2>Welcome</h2>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="form-control" placeholder="User" asp-for="UserName" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="form-control" placeholder="Password" asp-for="PassWord" />
+                            <span asp-validation-for="PassWord" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-success" type="submit">Log in</button>
+                        </div>
+                    </div>
+                    <label id="indexMessage" class="error">@Html.DisplayFor(m => m.ErrorMessage)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@await Html.PartialAsync("_ValidationScriptsPartial")
