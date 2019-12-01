@@ -2,30 +2,44 @@
 @{
     ViewData["Title"] = "Index";
 }
-    <link href="~/css/Dates.css" rel="stylesheet" />
-    <div class="container">
-        <div class="contenedor">
-            <form action="" class="form">
-                <div class="form-header">
-                    <h1 class="form-tittle">Solicitar una Cita</h1>
-                    <label for="dni" class="form-label">Dni:</label>
-                    <input type="text" id="dni" class="form-input" placeholder="Escriba su nombre">
+<link href="~/css/Dates.css" rel="stylesheet" />
+<div class="container">
+    <div class="contenedor">
+        <form action="" class="form">
+            <div class="form-header">
+                <h1 class="form-tittle">Solicitar una Cita</h1>
 
-                    <label for="nombre" class="form-label">Nombres:</label>
-                    <input type="text" id="nombre" class="form-input" placeholder="Escriba su nombre">
+                <input type="hidden" class="rem" id="idPatient" value="" />
 
-                    <label for="apellido" class="form-label">Apellidos:</label>
-                    <input type="text" id="apellido" class="form-input" placeholder="Escriba su nombre">
+                <label for="dni" class="form-label">Dni:</label>
+                <input type="text" id="dni" class="form-input " placeholder="Escriba su Dni">
 
-                    <label for="servicios" class="form-label">Servicios:</label>
-                    <input type="text" id="servicios" class="form-input" placeholder="Escriba su nombre">
+                <label for="nombre" class="form-label">Nombres:</label>
+                <input type="text" id="nombre" class="form-input rem" placeholder="Escriba su Nombre">
 
-                    <label for="fechaCita" class="form-label">FechaCita:</label>
-                    <input type="text" id="fechaCita" class="form-input" placeholder="Escriba su nombre">
+                <label for="apellido" class="form-label">Apellidos:</label>
+                <input type="text" id="apellido" class="form-input rem" placeholder="Escriba su Apellido">
 
-                    <input type="button" class="btn-submit" name="name" value="" />
+                <label for="servicios" class="form-label">Servicios:</label>
+                <select id="servicios" class="form-input">
+                    <option value="">--Seleccione un servicio--</option>
+                </select>
+
+                <label for="fechaCita" class="form-label">Fecha Cita:</label>
+                <input type="datetime-local" id="fechaCita" class="form-input">
+
+                <label for="descripcion" class="form-label">Descripcion:</label>
+                <input type="text" id="descripcion" class="form-input" placeholder="Escriba su descripcion">
+
+                <input type="button" id="agendar" class="btn-submit" name="name" value="Agendar" />
+                
+                <div class="card-footer">
+                    <p class="alert-warning text-hide" id="mensaje">creada</p>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+</div>
+
 <script src="~/js/Dates.js"></script>
+

@@ -12,6 +12,8 @@ namespace GAP.Transversal.Models
         public bool Status { get; set; }
 
         //To Mapping
+        public string IdPatientJs { get; set; }
+        public string IdServiceJs { get; set; }
         public string Dni {get;set;}
         public string FirstName {get;set;}
         public string LastName { get;set;}

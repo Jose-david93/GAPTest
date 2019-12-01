@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GAP.BussinesLogic.Contract;
 using GAP.Transversal.Models;
+using GAP.Transversal.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,7 @@ namespace GAP.Services.Controllers
         [HttpPost]
         public ActionResult CreatePatient(Patients request)
         {
-            Patients result = patient.CreatePatient(request);
+            Response<Patients> result = patient.CreatePatient(request);
             return Ok(result);
         }
 
@@ -31,10 +32,9 @@ namespace GAP.Services.Controllers
         [HttpGet]
         public ActionResult FindByDni(string dni)
         {
-            Patients request = new Patients();
-            request.Dni = dni;
+            Patients request = new Patients(dni);
 
-            Patients result = patient.FindByDni(request);
+            Response<Patients> result = patient.FindByDni(request);
             return Ok(result);
         }
     }

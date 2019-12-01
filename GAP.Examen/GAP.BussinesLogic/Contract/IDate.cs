@@ -1,5 +1,6 @@
 ﻿
 using GAP.Transversal.Models;
+using GAP.Transversal.Response;
 using System.Collections.Generic;
 
 namespace GAP.BussinesLogic.Contract
@@ -8,8 +9,9 @@ namespace GAP.BussinesLogic.Contract
     {
         bool IsCancelable(Dates date);
         bool HavePatientDate(Dates date);
-        bool CancelDate(Dates date);
-        Dates CreateDate(Dates date);
+        Response<bool> CancelDate(Dates date);
+        Response<Dates> CreateDate(Dates date);
         IList<Dates> GetDates(QueryParameters queryParameters);
+        Response<IList<Services>> GetServices();
     }
 }

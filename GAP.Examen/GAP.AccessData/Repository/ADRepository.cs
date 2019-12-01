@@ -2,6 +2,7 @@
 using GAP.Transversal.Models;
 using Insight.Database;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GAP.AccessData.Repository
 {
@@ -11,7 +12,7 @@ namespace GAP.AccessData.Repository
         {
             using (var con = Insight.ADInsight.DefaultCnn.OpenWithTransaction())
             {
-                con.Execute("Insert" + entity.GetType().Name, entity);
+                con.Insert("Insert" + entity.GetType().Name, entity);
                 con.Commit();
                 return entity;
             }
@@ -32,6 +33,14 @@ namespace GAP.AccessData.Repository
                 ADInsight.
                 DefaultCnn.
                 Query<T>("Find"+entity.GetType().Name, parameters);
+        }
+
+        public IList<T> Find(T entity)
+        {
+            return Insight.
+                ADInsight.
+                DefaultCnn.
+                Query<T>("Find" + entity.GetType().Name);
         }
 
         public bool Update(T entity)
