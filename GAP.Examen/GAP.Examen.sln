@@ -25,7 +25,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GAP.AccessData", "GAP.Acces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GAP.Transversal", "GAP.Transversal\GAP.Transversal.csproj", "{4629A4FA-AA9E-4481-BB98-C3628B2BFBBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Examen.Test", "GAP.Examen.Test\GAP.Examen.Test.csproj", "{F9F6E954-57FA-4391-9C5E-0C40D0636234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GAP.Examen.Test", "GAP.Examen.Test\GAP.Examen.Test.csproj", "{F9F6E954-57FA-4391-9C5E-0C40D0636234}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scrips", "Scrips", "{BDA1623C-AE94-4EA3-91AC-BAA790CCFFE6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\ScriptsExamen\CreateDataBase.sql = ..\..\..\..\Desktop\ScriptsExamen\CreateDataBase.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPFindDates.sql = ..\..\..\..\Desktop\ScriptsExamen\SPFindDates.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPFindloginViewModel.sql = ..\..\..\..\Desktop\ScriptsExamen\SPFindloginViewModel.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPFindPatients.sql = ..\..\..\..\Desktop\ScriptsExamen\SPFindPatients.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPFindServices.sql = ..\..\..\..\Desktop\ScriptsExamen\SPFindServices.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPHavePatientDate.sql = ..\..\..\..\Desktop\ScriptsExamen\SPHavePatientDate.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPInsertDates.sql = ..\..\..\..\Desktop\ScriptsExamen\SPInsertDates.sql
+		..\..\..\..\Desktop\ScriptsExamen\SpInsertPatients.sql = ..\..\..\..\Desktop\ScriptsExamen\SpInsertPatients.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPIsCancelable.sql = ..\..\..\..\Desktop\ScriptsExamen\SPIsCancelable.sql
+		..\..\..\..\Desktop\ScriptsExamen\SPUpdateDates.sql = ..\..\..\..\Desktop\ScriptsExamen\SPUpdateDates.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
